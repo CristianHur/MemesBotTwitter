@@ -1,0 +1,10 @@
+{
+  "name": "twitter-bot",
+  "version": "1.0",
+  "description": "",
+  "main": "bot.js",
+  "author": "CHurtado",
+  "dependencies": {
+    "node-fetch": "^2.3.0"
+  }
+}
