@@ -129,6 +129,8 @@ function enviar() {
 		console.log("Error obteniendo imagen");
 		return;
 	}
+	
+	wait(60000);
 
 	// first we must post the media to Twitter
 	T.post('media/upload', {
