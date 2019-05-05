@@ -25,7 +25,7 @@ mainprogram();
 setInterval(mainprogram, tiempoEntreEnvio);
 
 function mainprogram() {
-    subr = ["memes", "me_irl", "dank_meme"];
+	subr = ["memes", "me_irl", "dank_meme"];
 	let aleatoriosubr = Math.floor((Math.random() * subr.length));
 	var enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/random.json?limit=1";
 	fetch(enlaceFetch)
@@ -90,11 +90,11 @@ function EnvioReddit(res, subreddits) {
 function descarga() {
 
 	/*fs.unlink('/img/imagen.png/', (err) => {
-		if (err)
-			throw err;
-		console.log('Imagen borrada correctamente.');
+	if (err)
+	throw err;
+	console.log('Imagen borrada correctamente.');
 	});*/
-	
+
 	extension = urla.slice(-4);
 	console.log("Extensión: " + extension);
 
@@ -119,45 +119,55 @@ function descarga() {
 
 function enviar() {
 
-try{
-	var b64content = fs.readFileSync("img/imagen" + extension, {
-			encoding: 'base64'
-		});
-}
-catch (err)
-{
-	console.log("Error obteniendo imagen");
-	return;
-}
+	wait(12000);
 
-		// first we must post the media to Twitter
-		T.post('media/upload', {
-			media_data: b64content
-		}, function (err, data, response) {
-			var mediaIdStr = data.media_id_string
-				var altText = "Meme"
-				var meta_params = {
-				media_id: mediaIdStr,
-				alt_text: {
-					text: altText
-				}
+	try {
+		var b64content = fs.readFileSync("img/imagen" + extension, {
+				encoding: 'base64'
+			});
+	} catch (err) {
+		console.log("Error obteniendo imagen");
+		return;
+	}
+
+	// first we must post the media to Twitter
+	T.post('media/upload', {
+		media_data: b64content
+	}, function (err, data, response) {
+		var mediaIdStr = data.media_id_string
+			var altText = "Meme"
+			var meta_params = {
+			media_id: mediaIdStr,
+			alt_text: {
+				text: altText
 			}
+		}
 
-			T.post('media/metadata/create', meta_params, function (err, data, response) {
-				if (!err) {
+		T.post('media/metadata/create', meta_params, function (err, data, response) {
+			if (!err) {
 
-					var params = {
-						status: "",
-						media_ids: [mediaIdStr]
-					}
-
-					T.post('statuses/update', params, function (err, data, response) {
-						console.log("Meme enviado: " + urla);
-					})
+				var params = {
+					status: "",
+					media_ids: [mediaIdStr]
 				}
-			})
-		})
 
+				T.post('statuses/update', params, function (err, data, response) {
+					console.log("Meme enviado: " + urla);
+				})
+			}
+		})
+	})
 
 }
 //-------------------------------------------------------
+//Función de Esperar
+
+function wait(ms) {
+	var start = new Date().getTime();
+	var end = start;
+	while (end < start + ms) {
+		end = new Date().getTime();
+	}
+}
+
+//----------------------------------------
