@@ -130,7 +130,7 @@ function enviar() {
 		return;
 	}
 	
-	wait(60000);
+	wait(80000);
 
 	// first we must post the media to Twitter
 	T.post('media/upload', {
@@ -144,6 +144,8 @@ function enviar() {
 				text: altText
 			}
 		}
+	
+	wait(80000);
 
 		T.post('media/metadata/create', meta_params, function (err, data, response) {
 			if (!err) {
