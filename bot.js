@@ -120,7 +120,7 @@ function descarga() {
 
 function enviar() {
 
-	wait(12000);
+	wait(360000);
 
 	try {
 		var b64content = fs.readFileSync("img/imagen" + extension, {
@@ -131,7 +131,7 @@ function enviar() {
 		return;
 	}
 	
-	wait(80000);
+	wait(360000);
 
 	// first we must post the media to Twitter
 	T.post('media/upload', {
@@ -146,7 +146,7 @@ function enviar() {
 			}
 		}
 	
-	wait(80000);
+	wait(360000);
 
 		T.post('media/metadata/create', meta_params, function (err, data, response) {
 			if (!err) {
