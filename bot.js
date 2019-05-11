@@ -136,7 +136,10 @@ function enviar() {
 	// first we must post the media to Twitter
 	T.post('media/upload', {
 		media_data: b64content
-	}, function (err, data, response) {
+	}, function (err, data, response) 
+	{
+		if(!err)
+		{
 		var mediaIdStr = data.media_id_string
 			var altText = "Meme"
 			var meta_params = {
@@ -146,10 +149,10 @@ function enviar() {
 			}
 		}
 	
-	wait(360000);
+		wait(360000);
 
-		T.post('media/metadata/create', meta_params, function (err, data, response) {
-			if (!err) {
+		T.post('media/metadata/create', meta_params, function (erro, data, response) {
+			if (!erro) {
 
 				var params = {
 					status: "",
@@ -161,6 +164,9 @@ function enviar() {
 				})
 			}
 		})
+		}
+		else
+			console.log("ERROR");
 	})
 
 }
