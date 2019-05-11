@@ -130,43 +130,43 @@ function enviar() {
 		console.log("Error obteniendo imagen");
 		return;
 	}
-	
+
 	wait(360000);
 
 	// first we must post the media to Twitter
 	T.post('media/upload', {
 		media_data: b64content
-	}, function (err, data, response) 
-	{
-		if(!err)
-		{
-		var mediaIdStr = data.media_id_string
-			var altText = "Meme"
-			var meta_params = {
-			media_id: mediaIdStr,
-			alt_text: {
-				text: altText
-			}
-		}
-	
-		wait(360000);
-
-		T.post('media/metadata/create', meta_params, function (erro, data, response) {
-			if (!erro) {
-
-				var params = {
-					status: "",
-					media_ids: [mediaIdStr]
+	}, function (err, data, response) {
+		if (!err) {
+			var mediaIdStr = data.media_id_string
+				var altText = "Meme"
+				var meta_params = {
+				media_id: mediaIdStr,
+				alt_text: {
+					text: altText
 				}
-
-				T.post('statuses/update', params, function (err, data, response) {
-					console.log("Meme enviado: " + urla);
-				})
 			}
-		})
-		}
-		else
-			console.log("ERROR");
+
+			wait(360000);
+
+			T.post('media/metadata/create', meta_params, function (erro, data, response) {
+				if (!erro) {
+
+					var params = {
+						status: "",
+						media_ids: [mediaIdStr]
+					}
+
+					T.post('statuses/update', params, function (error, data, response) {
+						if (!error)
+							console.log("Meme enviado: " + urla);
+						else
+							console.log("ERROR 2");
+					})
+				}
+			})
+		} else
+			console.log("ERROR 1");
 	})
 
 }
