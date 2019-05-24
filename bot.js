@@ -14,7 +14,7 @@ const T = new Twit({
 		strictSSL: false,
 	});
 
-var tiempoEntreEnvio = 5400000;
+var tiempoEntreEnvio = 5400000/2;
 
 var urla;
 var extension = ".png";
