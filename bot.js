@@ -25,7 +25,7 @@ mainprogram();
 setInterval(mainprogram, tiempoEntreEnvio);
 
 function mainprogram() {
-	subr = ["memes", "me_irl", "dank_meme"];
+	subr = ["memes", "me_irl", "dank_meme", "MinecraftMemes", "wholesomememes", "funny", "dankmemes"];
 	let aleatoriosubr = Math.floor((Math.random() * subr.length));
 	var enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/random.json?limit=1";
 	//console.log("REDDIT: " + subr[aleatoriosubr]);
