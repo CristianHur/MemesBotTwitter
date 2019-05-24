@@ -152,7 +152,7 @@ function enviar() {
 				if (!erro) {
 
 					var params = {
-						status: "",
+						status: "#Meme #Memes",
 						media_ids: [mediaIdStr]
 					}
 
