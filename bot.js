@@ -69,6 +69,7 @@ function EnvioReddit(res, subreddits) {
 
 		if ((esover18 == true) || (isNSFW == 'promo_adult_nsfw') || (isNSFWpost.includes('nsfw'))) //Si es NSFW se envia otra imagen
 		{
+			console.log("ERA NSFW SE VUELVE A BUSCAR");
 			mainprogram();
 			return;
 
@@ -106,8 +107,7 @@ function descarga() {
 
 	download(urla, opcionimg, function (err) {
 		if (err) {
-			throw err
-			console.log("Error descargando imagen");
+			return console.error(error);
 		} else
 			enviar();
 	})
@@ -120,18 +120,17 @@ function descarga() {
 
 function enviar() {
 
-	wait(360000);
+	wait(15000);
 
 	try {
 		var b64content = fs.readFileSync("img/imagen" + extension, {
 				encoding: 'base64'
 			});
 	} catch (err) {
-		console.log("Error obteniendo imagen");
-		return;
+		return console.error(error);
 	}
 
-	wait(360000);
+	wait(15000);
 
 	// first we must post the media to Twitter
 	T.post('media/upload', {
@@ -147,7 +146,7 @@ function enviar() {
 				}
 			}
 
-			wait(360000);
+			wait(15000);
 
 			T.post('media/metadata/create', meta_params, function (erro, data, response) {
 				if (!erro) {
@@ -161,12 +160,14 @@ function enviar() {
 						if (!error)
 							console.log("Meme enviado: " + urla);
 						else
-							console.log("ERROR 2");
+							return console.error(error);
 					})
 				}
+				else
+					return console.error(error);
 			})
 		} else
-			console.log("ERROR 1");
+			return console.error(error);
 	})
 
 }
