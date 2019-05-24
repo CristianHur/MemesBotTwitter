@@ -9,9 +9,7 @@ const T = new Twit({
 		consumer_key: process.env.consumerKey,
 		consumer_secret: process.env.consumerSecret,
 		access_token: process.env.accesstoken,
-		access_token_secret: process.env.accesstokensecret,
-		timeout_ms: 60 * 1000,
-		strictSSL: false,
+		access_token_secret: process.env.accesstokensecret
 	});
 
 var tiempoEntreEnvio = 5400000/2;
