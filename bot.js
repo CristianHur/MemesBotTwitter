@@ -158,7 +158,7 @@ function enviar() {
 
 					T.post('statuses/update', params, function (error, data, response) {
 						if (!error)
-							console.log("Meme enviado: " + urla);
+							//console.log("Meme enviado: " + urla);
 						else
 							return console.error("4: " + error);
 					})
