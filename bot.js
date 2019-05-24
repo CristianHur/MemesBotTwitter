@@ -69,7 +69,7 @@ function EnvioReddit(res, subreddits) {
 
 		if ((esover18 == true) || (isNSFW == 'promo_adult_nsfw') || (isNSFWpost.includes('nsfw'))) //Si es NSFW se envia otra imagen
 		{
-			console.log("ERA NSFW SE VUELVE A BUSCAR");
+			//console.log("ERA NSFW SE VUELVE A BUSCAR");
 			mainprogram();
 			return;
 
@@ -98,7 +98,7 @@ function descarga() {
 	});*/
 
 	extension = urla.slice(-4);
-	console.log("Extensión: " + extension);
+	//console.log("Extensión: " + extension);
 
 	var opcionimg = {
 		directory: "./img/",
@@ -107,7 +107,7 @@ function descarga() {
 
 	download(urla, opcionimg, function (err) {
 		if (err) {
-			return console.error(error);
+			return console.error("1: " + err);
 		} else
 			enviar();
 	})
@@ -127,7 +127,7 @@ function enviar() {
 				encoding: 'base64'
 			});
 	} catch (err) {
-		return console.error(error);
+		return console.error("2: " + err);
 	}
 
 	wait(15000);
@@ -160,14 +160,14 @@ function enviar() {
 						if (!error)
 							console.log("Meme enviado: " + urla);
 						else
-							return console.error(error);
+							return console.error("4: " + error);
 					})
 				}
 				else
-					return console.error(error);
+					return console.error("5: " + erro);
 			})
 		} else
-			return console.error(error);
+			return console.error("3: " + err);
 	})
 
 }
