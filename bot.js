@@ -28,7 +28,7 @@ function mainprogram() {
 	subr = ["memes", "me_irl", "dank_meme"];
 	let aleatoriosubr = Math.floor((Math.random() * subr.length));
 	var enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/random.json?limit=1";
-	console.log("REDDIT: " + subr[aleatoriosubr]);
+	//console.log("REDDIT: " + subr[aleatoriosubr]);
 	fetch(enlaceFetch)
 	.then(res => res.json())
 	.then(res => EnvioReddit(res, subr));
@@ -77,7 +77,7 @@ function EnvioReddit(res, subreddits) {
 		{
 			urla = urls;
 
-			console.log("CONSULTA REDDIT: " + urls);
+			//console.log("CONSULTA REDDIT: " + urls);
 		}
 
 	}
