@@ -130,19 +130,22 @@ function descarga() {
 		if (o <= 5000000) {
 			extension = urla.slice(-4);
 
-			var opcionimg = {
-				directory: "./img/",
-				filename: "imagen" + extension
-			}
+			if (extension == '.jpg' || extension == '.jpeg')
+				mainprogram();
+			else {
+				var opcionimg = {
+					directory: "./img/",
+					filename: "imagen" + extension
+				}
 
-			download(urla, opcionimg, function (err) {
-				if (err) {
-					return console.error("ERROR 1: " + err);
-				} else
-					enviar();
-			})
-		}
-		else
+				download(urla, opcionimg, function (err) {
+					if (err) {
+						return console.error("ERROR 1: " + err);
+					} else
+						enviar();
+				})
+			}
+		} else
 			mainprogram();
 
 	})
@@ -214,8 +217,7 @@ function enviar() {
 				} else
 					return console.error("ERROR 5: " + erro);
 			})
-		} else
-		{
+		} else {
 			console.error("ERROR 3: " + err);
 			mainprogram();
 		}
