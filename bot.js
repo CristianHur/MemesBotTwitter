@@ -3,6 +3,7 @@ const Twit = require('twit');
 const fs = require('fs');
 const download = require('download-file');
 const fetch = require('node-fetch');
+const BitLy = require('bit.ly');
 
 //Arranque
 const T = new Twit({
@@ -10,13 +11,15 @@ const T = new Twit({
 		consumer_secret: process.env.consumerSecret,
 		access_token: process.env.accesstoken,
 		access_token_secret: process.env.accesstokensecret,
-	});
+});
+
+var bl = new BitLy('dequei', 'ae13dda0984ec424f804bfb07b12619b744c7101');
 
 var tiempoEntreEnvio = 5400000/2;
 
 var urla;
 var extension = ".png";
-var linkpost;
+var linkpost, enlacepostcorto;
 console.log("FUNCIONANDO MEMES");
 //-------------
 
@@ -151,8 +154,13 @@ function enviar() {
 			T.post('media/metadata/create', meta_params, function (erro, data, response) {
 				if (!erro) {
 
+				    bl.shorten("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost, function (err, res) {
+				        enlacepostcorto = res;
+				        console.log(res);
+				    });
+
 					var params = {
-					    status: '#Meme #Memes',
+					    status: '#Meme #Memes \nReddit post: ' + enlacepostcorto,
 						media_ids: [mediaIdStr]
 					}
 
