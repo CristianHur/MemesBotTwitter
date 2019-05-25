@@ -3,7 +3,7 @@ const Twit = require('twit');
 const fs = require('fs');
 const download = require('download-file');
 const fetch = require('node-fetch');
-const tiny = require('tiny-shortener').tiny;
+const linkShortener = require('links-shortener');
 
 //Arranque
 const T = new Twit({
@@ -185,11 +185,8 @@ function enviar() {
 					
 					var enlaceEnviar;
 					
-					tiny("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost)
-					.then(url => enlaceEnviar)
-					.catch(console.error);
-
-					console.log(enlaceEnviar);
+					var shortenedLink = linkShortener.makeURLShorter("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost, 'com', 40);
+					console.log(shortenedLink);
 					
                     var params = {
                         status: '#Meme #Memes \nFollow me! I upload memes every hour. \n·Source: https://www.reddit.com' + linkpost,
