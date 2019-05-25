@@ -123,7 +123,6 @@ function EnvioReddit(res, subreddits) {
 //Función que descarga la imagen
 function descarga() {
 
-	console.log("URL " + urla);
 	remote(urla, function (err, o) {
 		//console.log(o)
 
@@ -133,6 +132,7 @@ function descarga() {
 			if (extension == '.jpg' || extension == '.jpeg')
 				mainprogram();
 			else {
+				console.log("URL " + urla);
 				var opcionimg = {
 					directory: "./img/",
 					filename: "imagen" + extension
