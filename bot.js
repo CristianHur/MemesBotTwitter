@@ -160,25 +160,18 @@ function enviar() {
             encoding: 'base64'
         });
 		
-		fs.watchFile("img/imagen" + extension, function () {
-		fs.stat("img/imagen" + extension, function (erra, stats) 
-		{
-			if(erra)
-				console.error(erra);
-			else
-			{
-			console.log(stats.size);
-			PesoImagen = stats.size;
-			}
-		});
-		});
-		
-		
     } catch (err) {
         return console.error("ERROR 2: " + err);
     }
 	
 	wait(15000);
+	
+	
+	fs.watch('file', function (curr, prev) {
+  fs.stat('file', function (err, stats) {
+    console.log(stats.size);
+  });
+});
 	
 	console.log("P " + PesoImagen);
 
