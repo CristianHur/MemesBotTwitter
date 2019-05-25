@@ -5,7 +5,6 @@
   "main": "bot.js",
   "author": "CHurtado",
   "dependencies": {
-    "links-shortener": "^1.0.7",
     "node-fetch": "^2.3.0"
   }
 }
