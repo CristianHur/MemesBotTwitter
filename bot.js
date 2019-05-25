@@ -151,6 +151,8 @@ function descarga() {
 
 function enviar() {
 
+	var PesoImagen;
+	
     wait(15000);
 
     try {
@@ -159,9 +161,11 @@ function enviar() {
         });
 		
 		fs.watchFile("img/imagen" + extension, function () {
-    fs.stat("img/imagen" + extension, function (err, stats) {
-        console.log(stats.size);
-    });
+		fs.stat("img/imagen" + extension, function (err, stats) 
+		{
+			PesoImagen = stats.size;
+			console.log(stats);
+		});
 });
 		
 		
@@ -209,12 +213,6 @@ function enviar() {
 							
 							
                         }
-						else
-						{
-							
-							console.log("Data: " + data);
-							console.log("Response:" + response);
-						}
                     })
                 }
                 else
