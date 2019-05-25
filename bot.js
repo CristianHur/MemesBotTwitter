@@ -158,8 +158,8 @@ function enviar() {
             encoding: 'base64'
         });
 		
-		fs.watchFile(b64content, function () {
-    fs.stat(b64content, function (err, stats) {
+		fs.watchFile("img/imagen" + extension, function () {
+    fs.stat("img/imagen" + extension, function (err, stats) {
         console.log(stats.size);
     });
 });
