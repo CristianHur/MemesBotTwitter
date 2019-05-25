@@ -151,19 +151,21 @@ function enviar() {
 
 			wait(15000);
 
+			bl.shorten("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost, function (erroraso, res) {
+			    if (erroraso)
+			        return console.error(erroraso);
+			    else {
+			        console.log(res);
+			        enlacepostcorto = res;
+			    }
+
+			});
+
+            if(enlacepostcorto != undefined)
 			T.post('media/metadata/create', meta_params, function (erro, data, response) {
 				if (!erro) {
 
-				    bl.shorten("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost, function (erroraso, res) {
-				        if (erroraso)
-				            return console.error(erroraso);
-				        else
-				        {
-				            console.log(res);
-				            enlacepostcorto = res;
-				        }
-			
-				    });
+
 
 					var params = {
 					    status: '#Meme #Memes \nReddit post: ' + enlacepostcorto,
