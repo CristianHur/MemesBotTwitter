@@ -25,24 +25,24 @@ setInterval(mainprogram, tiempoEntreEnvio);
 function mainprogram() {
     subr = ["memes", "me_irl", "dank_meme", "MinecraftMemes", "wholesomememes", "funny", "dankmemes"];
     let aleatoriosubr = Math.floor((Math.random() * subr.length));
-    var enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/random.json?limit=1";
+    //var enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/random.json?limit=1";
 
 
     switch (Math.floor((Math.random() * 4) + 1)) {
         case 1:
-            enlaceFetch = "https://www.reddit.com/r/" + subreddits[aleatoriosubr] + "/new/.json";
+            enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/new/.json";
             break;
         case 2:
-            enlaceFetch = "https://www.reddit.com/r/" + subreddits[aleatoriosubr] + "/hot/.json";
+            enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/hot/.json";
             break;
         case 3:
-            enlaceFetch = "https://www.reddit.com/r/" + subreddits[aleatoriosubr] + "/controversial/.json";
+            enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/controversial/.json";
             break;
         case 4:
-            enlaceFetch = "https://www.reddit.com/r/" + subreddits[aleatoriosubr] + "/top/.json";
+            enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/top/.json";
             break;
         default:
-            enlaceFetch = "https://www.reddit.com/r/" + subreddits[aleatoriosubr] + "/hot/.json";
+            enlaceFetch = "https://www.reddit.com/r/" + subr[aleatoriosubr] + "/hot/.json";
             break;
     }
 
