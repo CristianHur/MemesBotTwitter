@@ -183,7 +183,7 @@ function enviar() {
                 if (!erro) {
 					
                     var params = {
-                        status: '#Meme #Memes \nFollow me! I upload memes every hour. \n·Source: https://www.reddit.com' + linkpost,
+                        status: 'Follow me! I upload memes every hour. #Meme #Memes #Reddit\n·Source: https://www.reddit.com' + linkpost,
                         media_ids: [mediaIdStr]
                     }
 
