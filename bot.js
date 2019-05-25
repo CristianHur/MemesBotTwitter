@@ -107,7 +107,7 @@ function descarga() {
 
 	download(urla, opcionimg, function (err) {
 		if (err) {
-			return console.error("1: " + err);
+		    return console.error("ERROR 1: " + err);
 		} else
 			enviar();
 	})
@@ -127,7 +127,7 @@ function enviar() {
 				encoding: 'base64'
 			});
 	} catch (err) {
-		return console.error("2: " + err);
+	    return console.error("ERROR 2: " + err);
 	}
 
 	wait(15000);
@@ -160,15 +160,15 @@ function enviar() {
 						if (error)
 						{
 							//console.log("Meme enviado: " + urla);
-							return console.error("4: " + error);
+						    return console.error("ERROR 4: " + error);
 						}
 					})
 				}
 				else
-					return console.error("5: " + erro);
+				    return console.error("ERROR 5: " + erro);
 			})
 		} else
-			return console.error("3: " + err);
+			return console.error("ERROR 3: " + err);
 	})
 
 }
