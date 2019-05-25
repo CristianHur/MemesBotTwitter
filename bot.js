@@ -164,14 +164,15 @@ function enviar() {
 		fs.stat("img/imagen" + extension, function (err, stats) 
 		{
 			PesoImagen = stats.size;
-			console.log(stats);
 		});
-});
+		});
 		
 		
     } catch (err) {
         return console.error("ERROR 2: " + err);
     }
+	
+	console.log(PesoImagen);
 
     wait(15000);
 
