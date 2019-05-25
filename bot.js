@@ -174,7 +174,7 @@ function enviar() {
             var meta_params = {
                 media_id: mediaIdStr,
                 alt_text: {
-                    text: altText
+                	text: altText
                 }
             }
 
@@ -182,11 +182,15 @@ function enviar() {
 
             T.post('media/metadata/create', meta_params, function (erro, data, response) {
                 if (!erro) {
-				
-					tiny('https://www.reddit.com' + linkpost)
-					.then(console.log)
+					
+					var enlaceEnviar;
+					
+					tiny("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost)
+					.then(enlaceEnviar = console.log)
 					.catch(console.error);
 
+					console.log(enlaceEnviar);
+					
                     var params = {
                         status: '#Meme #Memes \nFollow me! I upload memes every hour. \n·Source: https://www.reddit.com' + linkpost,
                         media_ids: [mediaIdStr]
