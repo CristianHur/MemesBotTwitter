@@ -186,7 +186,7 @@ function enviar() {
 					var enlaceEnviar;
 					
 					tiny("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost)
-					.then(enlaceEnviar = console.log)
+					.then(url => enlaceEnviar)
 					.catch(console.error);
 
 					console.log(enlaceEnviar);
