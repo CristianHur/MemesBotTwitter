@@ -215,7 +215,10 @@ function enviar() {
 					return console.error("ERROR 5: " + erro);
 			})
 		} else
-			return console.error("ERROR 3: " + err);
+		{
+			console.error("ERROR 3: " + err);
+			mainprogram();
+		}
 	})
 
 }
