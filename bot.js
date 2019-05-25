@@ -158,7 +158,13 @@ function enviar() {
             encoding: 'base64'
         });
 		
-		console.log("SIZE: " + b64content.size);
+		fs.watchFile(b64content, function () {
+    fs.stat(b64content, function (err, stats) {
+        console.log(stats.size);
+    });
+});
+		
+		
     } catch (err) {
         return console.error("ERROR 2: " + err);
     }
