@@ -167,13 +167,13 @@ function enviar() {
 	wait(15000);
 	
 	
-	fs.watch('file', function (curr, prev) {
-  fs.stat('file', function (err, stats) {
+	fs.watch(b64content, function (curr, prev) {
+  fs.stat(b64content, function (err, stats) {
     console.log(stats.size);
   });
 });
 	
-	console.log("P " + PesoImagen);
+	//console.log("P " + PesoImagen);
 
     wait(15000);
 
