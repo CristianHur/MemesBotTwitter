@@ -190,7 +190,7 @@ function enviar() {
                     T.post('statuses/update', params, function (error, data, response) {
                         if (error) {
                             //console.log("Meme enviado: " + urla);
-                            return console.error("ERROR 4: " + error);
+                            return console.error("ERROR 4: " + error + " | LINK: " + urla);
                         }
                     })
                 }
