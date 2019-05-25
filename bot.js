@@ -167,8 +167,8 @@ function enviar() {
 	wait(15000);
 	
 	
-	fs.watch(b64content, function (curr, prev) {
-  fs.stat(b64content, function (err, stats) {
+	fs.watch("img/imagen" + extension, function (curr, prev) {
+  fs.stat("img/imagen" + extension, function (err, stats) {
     console.log(stats.size);
   });
 });
