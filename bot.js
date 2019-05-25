@@ -16,6 +16,7 @@ var tiempoEntreEnvio = 5400000/2;
 
 var urla;
 var extension = ".png";
+var linkpost;
 console.log("FUNCIONANDO MEMES");
 //-------------
 
@@ -47,6 +48,7 @@ function EnvioReddit(res, subreddits) {
 		isNSFW = res[0].data.children[0].data.parent_whitelist_status;
 		isNSFWpost = res[0].data.children[0].data.whitelist_status;
 		esover18 = res[0].data.children[0].data.over_18;
+		linkpost = res[0].data.children[0].data.permalink;
 	} catch (err) {
 		console.log("ERROR: ENVÍO REDDIT");
 	}
@@ -150,7 +152,7 @@ function enviar() {
 				if (!erro) {
 
 					var params = {
-						status: "#Meme #Memes",
+					    status: "#Meme #Memes | Reddit post: http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost,
 						media_ids: [mediaIdStr]
 					}
 
