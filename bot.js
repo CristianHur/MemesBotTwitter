@@ -13,7 +13,7 @@ const T = new Twit({
 		access_token_secret: process.env.accesstokensecret,
 });
 
-var bl = new BitLy('dequei', 'ae13dda0984ec424f804bfb07b12619b744c7101');
+var bl = new BitLy(process.env.userbit, process.env.bitly);
 
 var tiempoEntreEnvio = 5400000/2;
 
@@ -159,8 +159,8 @@ function enviar() {
 				            return console.error(erroraso);
 				        else
 				        {
-				            enlacepostcorto = res;
 				            console.log(res);
+				            enlacepostcorto = res;
 				        }
 			
 				    });
