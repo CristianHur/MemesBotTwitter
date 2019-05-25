@@ -152,7 +152,7 @@ function enviar() {
 				if (!erro) {
 
 					var params = {
-					    status: "#Meme #Memes | Reddit post: http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost,
+					    status: "#Meme #Memes \n·Reddit post: http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost,
 						media_ids: [mediaIdStr]
 					}
 
