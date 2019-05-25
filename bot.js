@@ -3,6 +3,7 @@ const Twit = require('twit');
 const fs = require('fs');
 const download = require('download-file');
 const fetch = require('node-fetch');
+const remote = require('remote-file-size');
 
 //Arranque
 const T = new Twit({
@@ -122,6 +123,12 @@ function EnvioReddit(res, subreddits) {
 //Función que descarga la imagen
 function descarga() {
 
+	console.log("URL " + urla);
+	remote(urla, function(err, o) {
+		console.log(o)
+		// => 1548
+		})
+
 	/*fs.unlink('/img/imagen.png/', (err) => {
 	if (err)
 	throw err;
@@ -151,8 +158,6 @@ function descarga() {
 
 function enviar() {
 
-	var PesoImagen;
-
 	wait(15000);
 
 	try {
@@ -163,17 +168,6 @@ function enviar() {
 	} catch (err) {
 		return console.error("ERROR 2: " + err);
 	}
-
-	wait(15000);
-
-	fs.watch("img/imagen" + extension, function (curr, prev) {
-		fs.stat("img/imagen" + extension, function (err, stats) {
-			console.log(stats.size);
-			PesoImagen = stats.size;
-		});
-	});
-
-	console.log("P " + PesoImagen);
 
 	wait(15000);
 
