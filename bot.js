@@ -124,31 +124,34 @@ function EnvioReddit(res, subreddits) {
 function descarga() {
 
 	console.log("URL " + urla);
-	remote(urla, function(err, o) {
+	remote(urla, function (err, o) {
 		console.log(o)
-		// => 1548
-		})
+
+		if (o <= 5000000) {
+			extension = urla.slice(-4);
+
+			var opcionimg = {
+				directory: "./img/",
+				filename: "imagen" + extension
+			}
+
+			download(urla, opcionimg, function (err) {
+				if (err) {
+					return console.error("ERROR 1: " + err);
+				} else
+					enviar();
+			})
+		}
+		else
+			mainprogram();
+
+	})
 
 	/*fs.unlink('/img/imagen.png/', (err) => {
 	if (err)
 	throw err;
 	console.log('Imagen borrada correctamente.');
 	});*/
-
-	extension = urla.slice(-4);
-	//console.log("Extensión: " + extension);
-
-	var opcionimg = {
-		directory: "./img/",
-		filename: "imagen" + extension
-	}
-
-	download(urla, opcionimg, function (err) {
-		if (err) {
-			return console.error("ERROR 1: " + err);
-		} else
-			enviar();
-	})
 
 }
 
