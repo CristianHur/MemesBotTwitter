@@ -161,10 +161,15 @@ function enviar() {
         });
 		
 		fs.watchFile("img/imagen" + extension, function () {
-		fs.stat("img/imagen" + extension, function (err, stats) 
+		fs.stat("img/imagen" + extension, function (erra, stats) 
 		{
+			if(erra)
+				console.error(erra);
+			else
+			{
 			console.log(stats.size);
 			PesoImagen = stats.size;
+			}
 		});
 		});
 		
