@@ -3,6 +3,8 @@ const Twit = require('twit');
 const fs = require('fs');
 const download = require('download-file');
 const fetch = require('node-fetch');
+const tiny = require('tiny-shortener').tiny;
+
 //Arranque
 const T = new Twit({
     consumer_key: process.env.consumerKey,
@@ -179,7 +181,11 @@ function enviar() {
             wait(15000);
 
             T.post('media/metadata/create', meta_params, function (erro, data, response) {
-                if (!erro) {
+                if (!erro) {ç
+				
+					tiny('https://www.reddit.com' + linkpost)
+					.then(console.log)
+					.catch(console.error);
 
                     var params = {
                         status: '#Meme #Memes \nFollow me! I upload memes every hour. \n·Source: https://www.reddit.com' + linkpost,
