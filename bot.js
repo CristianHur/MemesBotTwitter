@@ -157,6 +157,8 @@ function enviar() {
         var b64content = fs.readFileSync("img/imagen" + extension, {
             encoding: 'base64'
         });
+		
+		console.log("SIZE: " + b64content.size);
     } catch (err) {
         return console.error("ERROR 2: " + err);
     }
