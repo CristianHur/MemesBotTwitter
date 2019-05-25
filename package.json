@@ -5,7 +5,6 @@
   "main": "bot.js",
   "author": "CHurtado",
   "dependencies": {
-    "bitly": "^6.0.8",
     "node-fetch": "^2.3.0"
   }
 }

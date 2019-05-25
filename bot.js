@@ -3,7 +3,6 @@ const Twit = require('twit');
 const fs = require('fs');
 const download = require('download-file');
 const fetch = require('node-fetch');
-const BitlyClient = require('bitly');
 //Arranque
 const T = new Twit({
 		consumer_key: process.env.consumerKey,
@@ -12,15 +11,11 @@ const T = new Twit({
 		access_token_secret: process.env.accesstokensecret,
 });
 
-
-var bitly = new BitlyClient(process.env.bitly);
-
-
-var tiempoEntreEnvio = 5400000/2;
+var tiempoEntreEnvio = 3600000;
 
 var urla;
 var extension = ".png";
-var linkpost, enlacepostcorto;
+var linkpost;
 console.log("FUNCIONANDO MEMES");
 //-------------
 
@@ -155,18 +150,8 @@ function enviar() {
 			T.post('media/metadata/create', meta_params, function (erro, data, response) {
 				if (!erro) {
 
-				    bitly
-                      .shorten("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost)
-                      .then(function (result) {
-                          console.log(result);
-                          enlacepostcorto = result;
-                      })
-                      .catch(function (error) {
-                          console.error(error);
-                      });
-
 					var params = {
-					    status: '#Meme #Memes \nReddit post: ' + enlacepostcorto,
+					    status: '#Meme #Memes \nFollow me! I upload memes every hour.',
 						media_ids: [mediaIdStr]
 					}
 
