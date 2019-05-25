@@ -190,8 +190,23 @@ function enviar() {
                     T.post('statuses/update', params, function (error, data, response) {
                         if (error) {
                             //console.log("Meme enviado: " + urla);
+							
+							
+							/*T.post('statuses/destroy/:id', { id: '343360866131001345' }, function (err, data, response) {
+								console.log(data)
+							})*/
+							
+							
                             return console.error("ERROR 4: " + error + " | LINK: " + urla);
+							
+							
                         }
+						else
+						{
+							
+							console.log("Data: " + data);
+							console.log("Response:" + response);
+						}
                     })
                 }
                 else
