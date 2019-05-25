@@ -163,6 +163,7 @@ function enviar() {
 		fs.watchFile("img/imagen" + extension, function () {
 		fs.stat("img/imagen" + extension, function (err, stats) 
 		{
+			console.log(stats.size);
 			PesoImagen = stats.size;
 		});
 		});
@@ -172,7 +173,9 @@ function enviar() {
         return console.error("ERROR 2: " + err);
     }
 	
-	console.log(PesoImagen);
+	wait(15000);
+	
+	console.log("P " + PesoImagen);
 
     wait(15000);
 
