@@ -181,7 +181,7 @@ function enviar() {
             wait(15000);
 
             T.post('media/metadata/create', meta_params, function (erro, data, response) {
-                if (!erro) {ç
+                if (!erro) {
 				
 					tiny('https://www.reddit.com' + linkpost)
 					.then(console.log)
