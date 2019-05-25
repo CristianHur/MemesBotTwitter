@@ -3,8 +3,7 @@ const Twit = require('twit');
 const fs = require('fs');
 const download = require('download-file');
 const fetch = require('node-fetch');
-const BitLy = require('bit.ly');
-
+const BitlyClient = require('bitly');
 //Arranque
 const T = new Twit({
 		consumer_key: process.env.consumerKey,
@@ -13,7 +12,9 @@ const T = new Twit({
 		access_token_secret: process.env.accesstokensecret,
 });
 
-var bl = new BitLy(process.env.userbit, process.env.bitly);
+
+var bitly = new BitlyClient(process.env.bitly);
+
 
 var tiempoEntreEnvio = 5400000/2;
 
@@ -151,21 +152,18 @@ function enviar() {
 
 			wait(15000);
 
-			bl.shorten("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost, function (erroraso, res) {
-			    if (erroraso)
-			        return console.error(erroraso);
-			    else {
-			        console.log(res);
-			        enlacepostcorto = res;
-			    }
-
-			});
-
-            if(enlacepostcorto != undefined)
 			T.post('media/metadata/create', meta_params, function (erro, data, response) {
 				if (!erro) {
 
-
+				    bitly
+                      .shorten("http://sh.st/st/bb6c14a58d222943ff7e9f976095b38d/https://www.reddit.com" + linkpost)
+                      .then(function (result) {
+                          console.log(result);
+                          enlacepostcorto = result;
+                      })
+                      .catch(function (error) {
+                          console.error(error);
+                      });
 
 					var params = {
 					    status: '#Meme #Memes \nReddit post: ' + enlacepostcorto,
