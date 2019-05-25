@@ -13,7 +13,7 @@ const T = new Twit({
 });
 
 
-var bitly = new BitlyClient(process.env.bitly, {});
+var bitly = new BitlyClient(process.env.bitly);
 
 
 var tiempoEntreEnvio = 5400000/2;
