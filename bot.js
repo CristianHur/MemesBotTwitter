@@ -125,7 +125,7 @@ function descarga() {
 
 	console.log("URL " + urla);
 	remote(urla, function (err, o) {
-		console.log(o)
+		//console.log(o)
 
 		if (o <= 5000000) {
 			extension = urla.slice(-4);
