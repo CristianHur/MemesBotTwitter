@@ -17,7 +17,7 @@ var tiempoEntreEnvio = 3600000;
 
 var urla;
 var extension = ".png";
-var linkpost;
+var linkpost, title;
 console.log("FUNCIONANDO MEMES");
 //-------------
 
@@ -80,6 +80,7 @@ function EnvioReddit(res, subreddits) {
 		isNSFWpost = res.data.children[aleatoriopost].data.whitelist_status;
 		esover18 = res.data.children[aleatoriopost].data.over_18;
 		linkpost = res.data.children[aleatoriopost].data.permalink;
+		title = res.data.children[aleatoriopost].data.title;
 
 	} catch (err) {
 		console.log("ERROR: ENVÍO REDDIT");
@@ -197,7 +198,7 @@ function enviar() {
 				if (!erro) {
 
 					var params = {
-						status: 'Follow me! I upload memes every hour. #Meme #Memes #Reddit\n·Source: https://www.reddit.com' + linkpost,
+						status: title + '\nhttps://www.reddit.com' + linkpost,
 						media_ids: [mediaIdStr]
 					}
 
